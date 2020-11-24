@@ -84,19 +84,31 @@ for par in t:
 print('são pares')
 ## DESAFIO 076
 i = 0
-comida = 'hamburgue', 1, 'arroz', 2, 'feijão', 3, 'palmito', 4, 'banana', 5
+comida = 'hamburgue', 10.5, 'arroz', 20, 'feijão', 300.50, 'palmito', 4, 'banana', 5
 
-for x in range(int(len(comida)/2)):
+'''for x in range(int(len(comida)/2)):
     print(comida[i], end='.'*(20 -(len(comida[i]))))
     print('R$:', comida[i+1])
-    i += 2
+    i += 2'''
+#solução professor
+print('-'*40)
+print(f'{"LISTAGEM DE PREÇOS":^40}')
+print('-'*40)
+for pos in range(0,len(comida)):
+    if pos % 2 == 0:
+        print(f'{comida[pos]:.<30}', end='')
+    else:
+        print(f'R${comida[pos]:>7.2f}')
+print('-'*40)
 ## DESAFIO 077
 
 
-def maior(y):
-    return y > 0
+
 comida = 'hamburgue', 'arroz', 'feijão', 'palmito', 'banana', 'alfase', 'chocolate', 'macarrão', 'bifão'\
         , 'hot dog','coca-cola'
+''' Muitos IFs
+def maior(y):
+    return y > 0
 for x in comida:
     print(f'\nNa palavra {x.upper()} temos: ',end=' ')
     a = x.count('a')
@@ -114,7 +126,13 @@ for x in comida:
     u = x.count('u')
     if maior(u):
         print('u '*u, end='')
-    contagem = [a, e, i, o, u]
+    contagem = [a, e, i, o, u]'''
+
+for p in comida:
+    print(f'\nNa palavra {p.upper()} temos: ', end='')
+    for letras in p:
+        if letras in 'aeiou':
+            print(f'{letras.lower()}', end=' ')
 
 
 
