@@ -102,10 +102,10 @@ while nun != 0:
 valores.sort()
 print(valores)
 
-##
-# DESAFIO 080
-# Crie um programa onde o usuário possa digitar cinco valores numéricos
-# e cadastre-os em uma lista, ordenados sem usar o sort().
+## DESAFIO 080
+
+''' Crie um programa onde o usuário possa digitar cinco valores numéricos
+ e cadastre-os em uma lista, ordenados sem usar o sort().'''
 
 
 def desafio080():
@@ -135,18 +135,20 @@ for c in range(0, 5):
             else:
                 pos += 1
 print(lista)
-##
-# DESAFIO 081
-# Crie um programa que vai ler vários números e colocar em uma lista.
-# Depois disso, mostre:
-# A quantos números foram digitados
-# B lista de valores ordenadas de forma decrescente
-# C se o valor 5 foi digitado e está ou não na lista.
+## DESAFIO 081
+
+'''Crie um programa que vai ler vários números e colocar em uma lista.
+ Depois disso, mostre:
+ A quantos números foram digitados
+ B lista de valores ordenadas de forma decrescente
+ C se o valor 5 foi digitado e está ou não na lista.'''
 
 valores = []
 nun = int(input('digite um valor para adicionar a lista:'))
 print('digite o valor 0 para parar de adicionar valores:')
-while nun != 0:
+while True:
+    if nun == 0:
+        break
     valores.append(nun)
     nun = int(input('digite um valor para adicionar a lista:'))
     print('digite o valor 0 para parar de adicionar valores:')
@@ -182,15 +184,33 @@ print(f'primeira lista: {v},\n lista par {vpar}\n lista ímpar: {vimp}')
 Seu aplicativo deverá analisar se a expressão passada está com os 
 parênteses abertos e fechadas na ordem correta.
 '''
-expressa0 = []
+'''
+# tentativa01
+expressa0 = [] # tem um problema com expressões com (2+1(+1(2( 
 expressao = input('digite uma expressão:')
 quat1 = expressao.count('(')
 quat2 = expressao.count(')')
 if quat1 == quat2:
     print('expressão válida')
 else:
-    print('expressão invalida')
+    print('expressão invalida')'''
+# Resolução professor
 
+expressao = list(input('digite uma expressão matemática:'))
+pilha = []
+for simb in expressao:
+    if simb == '(':
+        pilha.append(simb)
+    elif simb == ')':
+        if len(pilha) > 0:
+            pilha.pop()
+        else:
+            pilha.append(')')
+            break
+if len(pilha) == 0:
+    print('expressão válida')
+else:
+    print('expressão inválida')
 
 
 
