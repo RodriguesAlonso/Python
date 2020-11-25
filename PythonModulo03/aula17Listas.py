@@ -40,24 +40,56 @@ print(f'lista original {a}, cópia {b}')
 b[3] = 0
 print(f'lista original {a}, cópia modificada {b}')
 ## DESAFIO 078
-lista = list()
-for x in range(5):
-    lista.append(int(input('digite um valor inteiro')))
-minimo = min(lista)
-maximo = max(lista)
-quantidade = lista.count(minimo)
-quantidade2 = lista.count(maximo)
-print(f'O menor valor digitado foi {minimo}, nas posições:', end=' ')
-for p in range(quantidade):
-    posicao = lista.index(minimo)
-    print(f'{posicao}', end='... ')
-    lista[lista.index(minimo)] = 'removidoMin'
-print(f'\nO maior valor digitado foi {maximo}, nas posições:', end=' ')
-for pm in range(quantidade2):
-    posicao = lista.index(maximo)
-    print(f'{posicao}', end='... ')
-    lista[lista.index(maximo)] = 'removidoMax'
+''' Faça um proga que leia 5 valores numéricos e guarde-os em uma lista. 
+No final, mostre qual foi o maior e o menor valor digitado e as suas respectivas posições na lista'''
+def desafio078():
+    lista = list()
+    for x in range(5):
+        lista.append(int(input('digite um valor inteiro')))
+    minimo = min(lista)
+    maximo = max(lista)
+    quantidade = lista.count(minimo)
+    quantidade2 = lista.count(maximo)
+    print(f'O menor valor digitado foi {minimo}, nas posições:', end=' ')
+    for p in range(quantidade):
+        posicao = lista.index(minimo)
+        print(f'{posicao}', end='... ')
+        lista[lista.index(minimo)] = 'removidoMin'
+    print(f'\nO maior valor digitado foi {maximo}, nas posições:', end=' ')
+    for pm in range(quantidade2):
+        posicao = lista.index(maximo)
+        print(f'{posicao}', end='... ')
+        lista[lista.index(maximo)] = 'removidoMax'
+# Resposta professor
+listanum = []
+mai = 0
+men = 0
+for c in range(0, 5):  # criar a lista
+    listanum.append(int(input(f'digite um valor para posição {c}:')))
+    if c == 0:  # descobrir o valor maior e menor
+        mai = men = listanum[c]
+    else:
+        if listanum[c] > mai:
+            mai = listanum[c]
+        if listanum[c] < men:
+            men = listanum[c]
+print('=' * 30)
+print(f'Você digitou os valores {listanum}')
+print(f'O maior valor digitado foi {mai} nas posições ', end=':')
+
+for i, v in enumerate(listanum):
+    if v == mai:
+        print(f'{i}... ', end='')
+print(f'\nO menor valor digitado foi {men} nas posições ', end=':')
+for i, v in enumerate(listanum):
+    if v == men:
+        print(f'{i}... ', end='')
+
 ## DESAFIO 079
+'''Crie um programa onde o usuário possa digitar vários valores
+numéricos e cadastre-os em uma lista. Caso o número já existe 
+lá dentro, ele não será adicionado. No final, serão exibidos 
+todos os valores únicos digitados, em ordem crescente.'''
 valores = []
 nun = 1
 while nun != 0:
@@ -75,16 +107,34 @@ print(valores)
 # Crie um programa onde o usuário possa digitar cinco valores numéricos
 # e cadastre-os em uma lista, ordenados sem usar o sort().
 
-lista03 = []
-for val in range(5):
-    lista03.append(int(input('digite um valor: ')))
-# ordenar a lista
-for i in range(len(lista03) -1):
-    for j in range(len(lista03) - i -1):
-        if lista03[j] > lista03[j + 1]:
-            lista03[j], lista03[j+1] = lista03[j + 1], lista03[j]
-print(lista03)
 
+def desafio080():
+    lista03 = []
+    for val in range(5):
+        lista03.append(int(input('digite um valor: ')))
+    # ordenar a lista
+    for i in range(len(lista03) -1):
+        for j in range(len(lista03) - i -1):
+            if lista03[j] > lista03[j + 1]:
+                lista03[j], lista03[j+1] = lista03[j + 1], lista03[j]
+    print(lista03)
+# Resposta professor
+lista = []
+for c in range(0, 5):
+    n = eval(input('digite um número:'))
+    if c == 0 or n > lista[-1]:
+        lista.append(n)
+        print('Adiconado ao final da lista.')
+    else:
+        pos = 0
+        while pos <= len(lista):
+            if n <= lista[pos]:
+                lista.insert(pos, n)
+                print(f'Adicionado na posição {pos} da lista.')
+                break
+            else:
+                pos += 1
+print(lista)
 ##
 # DESAFIO 081
 # Crie um programa que vai ler vários números e colocar em uma lista.
