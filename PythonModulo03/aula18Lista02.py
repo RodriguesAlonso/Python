@@ -86,5 +86,24 @@ numeros[1].pop(0)
 print(f'Os valores pares foram: {numeros[0]}')
 print(f'Os valores ímpares foram: {numeros[1]}')
 
+##
+# DESAFIO 86
+'''Crie um programa que crie uma matriz de dimensão 3x3 r
+preencha com valores lidos pelo teclado.
+No final mostre a matriz na tela, com a formatação correta'''
+
+matriz = [[0, 1, 2], [0, 1, 2], [0, 1, 2]]
+for linha in range(0, 3):
+    for coluna in range(0, 3):
+        n = int(input(f'digite o valor da linha {linha} e colina {coluna}:'))
+        matriz[linha][coluna] = n
+print(matriz)
+l = 0
+c = 0
+for f in range(3):
+    print('-' * 3)
+    for f2 in range(2):
+        print(f'---\n|{matriz[f][f2]}|',end='')
+
 
 
