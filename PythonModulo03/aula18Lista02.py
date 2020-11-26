@@ -101,9 +101,104 @@ print(matriz)
 l = 0
 c = 0
 for f in range(3):
-    print('-' * 3)
-    for f2 in range(2):
-        print(f'---\n|{matriz[f][f2]}|',end='')
+    print('')
+    for f2 in range(3):
+        print(f'[{matriz[f][f2]}]', end='')
+##
+# DESAFIO087
+'''Aprimore o desafio anterior. mostrando no final:
+A) A soma de todos os valores pares.
+B) A soma dos valores da terceira coluna
+C) O maior valor da segunda linha'''
+
+matriz = [[0, 1, 2], [0, 1, 2], [0, 1, 2]]
+for linha in range(0, 3):
+    for coluna in range(0, 3):
+        n = int(input(f'digite o valor da linha {linha} e colina {coluna}:'))
+        matriz[linha][coluna] = n
+print(matriz)
+l = 0
+c = 0
+for f in range(3):
+    print('')
+    for f2 in range(3):
+        print(f'[{matriz[f][f2]}]', end='')
+somapar = 0
+somatres = 0
+maiorvalor = max(matriz[1])
+for p in matriz:
+    for c in p:
+        if c % 2 == 0:
+            somapar += c
+print(f'\nA soma dos numeros pares: {somapar}')
+for p in range(0, 3):
+    somatres += matriz[p][2]
+print(f'A soma dos dos valore da terceira coluna: {somatres}')
+print(f'O maior valor da segunda linha é {maiorvalor}')
+##
+# DESAFIO 88
+'''Faça um programa que ajude um jogador da MEGASENA a criar
+palpites. O programa vai perguntar quantos jogos serão gerados e vai sortear
+6 números entre 1 e 60 para cada jogo, cadastrando tudo em uma lista composta.'''
+def jogos(tamanho):
+    from random import randint
+    # tamanho = int(input('Quantos jogos serão gerados? '))
+    for j in range(tamanho):
+        jogos = list()
+        i = 0
+        for j in range(6):
+            jogos.append(randint(1, 60))
+            print(jogos)
+            c = jogos.count(jogos[i])
+            while c > 1:
+                jogos[i] = randint(1, 60)
+                c = jogos.count(jogos[i])
+            i += 1
+
+        print(jogos)
+jogos(3)
+##
+# DESAFIO 89
+'''Crie um programa que leia nome e duas notas de vários alunos
+e guarde tudo em uma lista composta. no final, mostre 
+um boletim contendo a média de cada um e permita 
+que o usuário possa mostrar as notas de 
+cada aluno individualmente'''
+
+boletim = []
+dado = []
+for n in range(2):
+    dado.append(n)
+    dado.append(input('Nome:'))
+    dado.append(input('nota 1:'))
+    dado.append(input('nota 2:'))
+    media = (int(dado[2]) + int(dado[3])) / 2
+    dado.append(media)
+    boletim.append(dado[:])
+    dado.clear()
+print(boletim)
+print('-=' * 10)
+print('No. NOME\t  MÉDIA')
+print('-' * 20)
+i = 0
+while i <= len(boletim[0][1]):
+    print(boletim[i][0], end='\t')
+    print(boletim[i][1], end='\t\t')
+    print(boletim[i][2])
+    i += 1
+x = 's'
+while x in 'sS':
+    n = int(input('Digite o número do aluno para ver as notas'))
+    print(f'Notas de {boletim[n][1]} são: {boletim[n][2:4]}')
+    x = input('quer consultar a nota de outro aluno: [S]/[N]')
+print('fim')
+
+
+
+
+
+
+
 
 
 
