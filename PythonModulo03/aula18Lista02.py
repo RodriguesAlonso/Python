@@ -51,18 +51,40 @@ for p in range(tamanho):
     pessoas.append(dado[:])
     dado.clear()
 print(f'Ao todo, você cadastrou {len(pessoas)} pessoas')
+i = 0
 for peso in pessoas:
-    if len(dado) == 0:
-        dado.append(peso)
+    dado.append(peso)
+    if peso[0][1] >= peso[i]:
+        dado[0][0].insert(-1, peso)
     else:
-        if peso[1] >= dado[1]:
-            maior.insert(0, peso)
-        else:
-            if peso[1] <= dado[1]:
-                menor.insert(0, peso)
-
+        if peso[1][0] <= dado[1]:
+            dado.insert(0, peso)
+i +=1
+print(dado)
 
 print(f'O maior peso foi {maior[0]}. Peso de {maior[1]}')
 print(f'O menor peso foi {menor[0]}. Peso de {menor[1]}')
+
+##
+# DESAFIO 85
+'''Crie um programa onde o usuário possa digitar sete valores numéricos 
+e cadastre-os em uma lista única que mantenha separados os valores
+pares e ímpares. No final, mostra os valores pares e ímpares em ordem crescente'''
+
+numeros = list()
+numeros.append([0])
+numeros.append([0])
+print(numeros)
+for x in range(1, 8):
+    y = int(input(f"digite o valor {x}o. valor: "))
+    if y % 2 == 0:
+        numeros[0].append(y)
+    else:
+        numeros[1].append(y)
+numeros[0].pop(0)
+numeros[1].pop(0)
+print(f'Os valores pares foram: {numeros[0]}')
+print(f'Os valores ímpares foram: {numeros[1]}')
+
 
 
