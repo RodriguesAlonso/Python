@@ -146,6 +146,26 @@ def jogos(tamanho):
             i += 1
 
         print(jogos)
+# resposta professor
+from random import randint
+from time import sleep
+tamanho = int(input('quantos jogos criar ? '))
+ljogo = []
+totaljogos = []
+c = 1
+for j in range(tamanho):
+    while c <= 6:
+        num = randint(1, 60)
+        if num not in ljogo:
+            ljogo.append(num)
+        c += 1
+    totaljogos.append(ljogo[:])
+    ljogo.clear()
+    c = 0
+print('-='*3, f'SORTEANDO {tamanho} JOGOS','-='*3)
+for i, l in enumerate(totaljogos):
+    print(f'Jogo {i+1}: {l}')
+    sleep(0.5)
 
 ##
 # DESAFIO 89
@@ -167,28 +187,17 @@ for n in range(2):
     boletim.append(dado[:])
     dado.clear()
 print(boletim)
-print('-=' * 10)
-print('No. NOME\t  MÉDIA')
-print('-' * 20)
+print('-=' * 30)
+print(f'{"No.":4<} {"NOME":<10}  {"MÉDIA":>8}')
+print('-' * 26)
 i = 0
 while i <= len(boletim[0][1]):
-    print(boletim[i][0], end='\t')
-    print(boletim[i][1], end='\t\t')
-    print(boletim[i][2])
+    print(f'{boletim[i][0]:<4}{boletim[i][1]:<10}{boletim[i][2]:>8}')
     i += 1
-x = 's'
-while x in 'sS':
-    n = int(input('Digite o número do aluno para ver as notas'))
+while True:
+    n = int(input('Digite o número do aluno para ver as notas:'))
     print(f'Notas de {boletim[n][1]} são: {boletim[n][2:4]}')
     x = input('quer consultar a nota de outro aluno: [S]/[N]')
+    if x in 'nN':
+        break
 print('fim')
-
-
-
-
-
-
-
-
-
-
