@@ -42,29 +42,29 @@ C) Uma listagem com as pessoas mais leves'''
 tamanho = int(input('Digite o tamanho de pessoas a ser cadastrado:'))
 dado = list()
 pessoas = list()
-maior = menor = pesos = list()
-i = 0
-
+maior = menor = 0
 for p in range(tamanho):
     dado.append(input('Nome:'))
-    dado.append(int(input('Peso:')))
+    dado.append(float(input('Peso:')))
+    if len(pessoas) == 0:
+        maior = dado[1]
+        menor = dado[1]
+    else:
+        if dado[1] > maior:
+            maior = dado[1]
+        if dado[1] < menor:
+            menor = dado[1]
     pessoas.append(dado[:])
     dado.clear()
 print(f'Ao todo, você cadastrou {len(pessoas)} pessoas')
-i = 0
-for peso in pessoas:
-    dado.append(peso)
-    if peso[0][1] >= peso[i]:
-        dado[0][0].insert(-1, peso)
-    else:
-        if peso[1][0] <= dado[1]:
-            dado.insert(0, peso)
-i +=1
-print(dado)
-
-print(f'O maior peso foi {maior[0]}. Peso de {maior[1]}')
-print(f'O menor peso foi {menor[0]}. Peso de {menor[1]}')
-
+print(f'O maior peso foi de {maior}', end=' ')
+for p in pessoas:
+    if p[1] == maior:
+        print(f'{p[0]}', end=', ')
+print(f'\nO menor peso foi {menor}', end=' ')
+for p in pessoas:
+    if p[1] == menor:
+        print(f'{p[0]}', end=', ')
 ##
 # DESAFIO 85
 '''Crie um programa onde o usuário possa digitar sete valores numéricos 
