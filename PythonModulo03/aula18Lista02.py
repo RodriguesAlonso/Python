@@ -71,9 +71,7 @@ for p in pessoas:
 e cadastre-os em uma lista única que mantenha separados os valores
 pares e ímpares. No final, mostra os valores pares e ímpares em ordem crescente'''
 
-numeros = list()
-numeros.append([0])
-numeros.append([0])
+numeros = [[], []]
 print(numeros)
 for x in range(1, 8):
     y = int(input(f"digite o valor {x}o. valor: "))
@@ -81,8 +79,8 @@ for x in range(1, 8):
         numeros[0].append(y)
     else:
         numeros[1].append(y)
-numeros[0].pop(0)
-numeros[1].pop(0)
+numeros[0].sort()
+numeros[1].sort()
 print(f'Os valores pares foram: {numeros[0]}')
 print(f'Os valores ímpares foram: {numeros[1]}')
 
@@ -95,15 +93,11 @@ No final mostre a matriz na tela, com a formatação correta'''
 matriz = [[0, 1, 2], [0, 1, 2], [0, 1, 2]]
 for linha in range(0, 3):
     for coluna in range(0, 3):
-        n = int(input(f'digite o valor da linha {linha} e colina {coluna}:'))
-        matriz[linha][coluna] = n
-print(matriz)
-l = 0
-c = 0
+        matriz[linha][coluna] = int(input(f'digite o valor da linha {linha} e colina {coluna}:'))
 for f in range(3):
-    print('')
     for f2 in range(3):
-        print(f'[{matriz[f][f2]}]', end='')
+        print(f'[{matriz[f][f2]:^5}]', end='')
+    print('')
 ##
 # DESAFIO087
 '''Aprimore o desafio anterior. mostrando no final:
@@ -114,15 +108,11 @@ C) O maior valor da segunda linha'''
 matriz = [[0, 1, 2], [0, 1, 2], [0, 1, 2]]
 for linha in range(0, 3):
     for coluna in range(0, 3):
-        n = int(input(f'digite o valor da linha {linha} e colina {coluna}:'))
-        matriz[linha][coluna] = n
-print(matriz)
-l = 0
-c = 0
+        matriz[linha][coluna] = int(input(f'digite o valor da linha {linha} e colina {coluna}:'))
 for f in range(3):
-    print('')
     for f2 in range(3):
-        print(f'[{matriz[f][f2]}]', end='')
+        print(f'[{matriz[f][f2]:^5}]', end='')
+    print('')
 somapar = 0
 somatres = 0
 maiorvalor = max(matriz[1])
@@ -156,7 +146,7 @@ def jogos(tamanho):
             i += 1
 
         print(jogos)
-jogos(3)
+
 ##
 # DESAFIO 89
 '''Crie um programa que leia nome e duas notas de vários alunos
