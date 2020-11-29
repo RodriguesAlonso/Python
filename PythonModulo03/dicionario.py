@@ -59,10 +59,25 @@ from random import randint
 carteira de trabalho e cadastre-os( com idade) em um dicionário
 se por acaso a CTPS for diferente de zero, o Dicionario receberá
 também o ano de contratação e o salário. Calcule e acrescente, além
-da idade, com quantos anos a pessoa vai se aposentar'''
+da idade, com quantos anos a pessoa vai se aposentar(35 anos de contribuição'''
 ##
 # DESAFIO 93
+'''Crie um programa que gerencie o aproveitamento de um jogador de futebol.
+O programa vai ler o nome do jogador e quantas partidas 
+ele jogou. Depois vai ler a quantidade de gols feitos em cada partida
+. NO final, tudo isso será guardado em um dicionário, incluindo o total de gols
+feito durante o campeonato'''
 ##
 # DESAFIO 94
+'''Crie um programa que leia nome, sexo e idade de várias pessoas,
+guardando os dados de cada pessoa em um dicionário e todos os 
+dicionários em uma lista. No final, mostre:
+A) Quantas pessoas foram cadastradas 
+B) A média de idade do grupo
+C) Uma lista com todas as mulheres
+D) Uma lista com todas as pessoas com idade acima da média'''
 ##
 # DESAFIO 95
+'''Aprimore o DESAFIO 093 para que ele funcione com vários jogadores,
+incluindo um sistema de visualização de detalhes do aproveitamento
+de cada jogador.'''
