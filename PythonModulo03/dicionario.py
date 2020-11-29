@@ -50,3 +50,19 @@ print(f'{nome} está {boletim["situacao"]}')
 resultados aleatórios. Guarde esses resultados em um dicionário.
 No final, coloque esse dicionário em ordem,
 sabendo que o vencedor tirou o maior número'''
+
+from random import randint
+
+##
+# DESAFIO 92
+'''Crie um programa que leia nome, ano de nascimento e
+carteira de trabalho e cadastre-os( com idade) em um dicionário
+se por acaso a CTPS for diferente de zero, o Dicionario receberá
+também o ano de contratação e o salário. Calcule e acrescente, além
+da idade, com quantos anos a pessoa vai se aposentar'''
+##
+# DESAFIO 93
+##
+# DESAFIO 94
+##
+# DESAFIO 95
