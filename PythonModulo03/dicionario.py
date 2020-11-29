@@ -25,3 +25,28 @@ for e in brasil:
     for v in e.values():
         print(v, end=' ')
     print()
+##
+# DESAFIO 90
+'''Faça um programa que leia nome e média de um aluno
+, guardando também a situação. no final mostre o conteúdo da
+estrutura na tela'''
+
+boletim = {}
+nome = input('Digite o nome: ')
+media = eval(input(f'Digite a média de {nome}:'))
+if media > 5:
+    situacao = 'Aprovado'
+else:
+    situacao = 'Reprovado'
+boletim = {'aluno': nome, 'final': media, 'situacao': situacao}
+print(f'Nome: {boletim["aluno"]}')
+print(f'Média de {boletim["aluno"]}: {boletim["final"]}')
+print(f'{nome} está {boletim["situacao"]}')
+
+##
+# DESAFIO 91
+
+''' Crie um programa onde 4 jogadores joguem um dado e tenham
+resultados aleatórios. Guarde esses resultados em um dicionário.
+No final, coloque esse dicionário em ordem,
+sabendo que o vencedor tirou o maior número'''
