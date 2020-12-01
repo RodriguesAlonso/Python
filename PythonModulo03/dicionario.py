@@ -58,6 +58,7 @@ No final, coloque esse dicionário em ordem,
 sabendo que o vencedor tirou o maior número'''
 
 from random import randint
+from operator import itemgetter
 
 jogador1 = randint(1, 6)
 jogador2 = randint(1, 6)
@@ -66,13 +67,13 @@ jogador4 = randint(1, 6)
 jogadas = {'jogador1': jogador1, 'jogador2': jogador2, 'jogador3': jogador3, 'jogador4': jogador4}
 ordem = []
 i = 0
-for valor in jogadas.values():
-    ordem.append(valor)
-print(ordem)
-ordem.sort()
-print(ordem)
 for v, i in jogadas.items():
     print(f'{v}, {i}')
+ordem = sorted(jogadas.items(), key=itemgetter(1), reverse=True)
+print('-='*30)
+for j, r in enumerate(ordem):
+    print(f'{j + 1}º lugar {r[0]} com {r[1]}.')
+
 
 
 ##
