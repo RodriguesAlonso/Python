@@ -34,14 +34,20 @@ estrutura na tela'''
 boletim = {}
 nome = input('Digite o nome: ')
 media = eval(input(f'Digite a média de {nome}:'))
-if media > 5:
+if media >= 7:
     situacao = 'Aprovado'
+elif media >= 5:
+    situacao = 'em Recuperação'
 else:
     situacao = 'Reprovado'
 boletim = {'aluno': nome, 'final': media, 'situacao': situacao}
-print(f'Nome: {boletim["aluno"]}')
+'''print(f'Nome: {boletim["aluno"]}')
 print(f'Média de {boletim["aluno"]}: {boletim["final"]}')
-print(f'{nome} está {boletim["situacao"]}')
+print(f'{nome} está {boletim["situacao"]}')'''
+# professor
+print('-=' * 30)
+for v, k in boletim.items():
+    print(f'- {v} é igual a {k}')
 
 ##
 # DESAFIO 91
@@ -52,6 +58,22 @@ No final, coloque esse dicionário em ordem,
 sabendo que o vencedor tirou o maior número'''
 
 from random import randint
+
+jogador1 = randint(1, 6)
+jogador2 = randint(1, 6)
+jogador3 = randint(1, 6)
+jogador4 = randint(1, 6)
+jogadas = {'jogador1': jogador1, 'jogador2': jogador2, 'jogador3': jogador3, 'jogador4': jogador4}
+ordem = []
+i = 0
+for valor in jogadas.values():
+    ordem.append(valor)
+print(ordem)
+ordem.sort()
+print(ordem)
+for v, i in jogadas.items():
+    print(f'{v}, {i}')
+
 
 ##
 # DESAFIO 92
