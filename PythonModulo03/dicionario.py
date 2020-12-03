@@ -78,19 +78,39 @@ carteira de trabalho e cadastre-os( com idade) em um dicionário
 se por acaso a CTPS for diferente de zero, o Dicionario receberá
 também o ano de contratação e o salário. Calcule e acrescente, além
 da idade, com quantos anos a pessoa vai se aposentar(35 anos de contribuição'''
-nome = input('Nome: ')
+from datetime import datetime
+'''nome = input('Nome: ') 
 nascimento = int(input('Ano de nascimento: '))
-idade = 2020 - nascimento
+idade = datetime.now().year - nascimento
 ctps = int(input('CTPS: '))
 contratacao = 0
 aposentadoria = 0
 if ctps != 0:
     contratacao = int(input('Ano de contratação: '))
-    aposentadoria = abs(2020 - contratacao - 35) + idade
+    aposentadoria = abs(datetime.now().year - contratacao - 35) + idade
 perfil = {'nome': nome, 'nascimento': nascimento, 'idade': idade, 'ctps': ctps, 'contratacao': contratacao, 'aposentadoria': aposentadoria, }
 for x, y in perfil.items():
     if y != 0:
         print(f'{x:.<20}{y:.>20}')
+'''
+# Resposta do professor:
+
+dado = dict()
+dado['Nome: '] = input('Nome:')
+dado['idade'] = datetime.now().year - int(input('Nascimento:'))
+dado['CTPS'] = int(input('CTPS:'))
+if dado['CTPS'] != 0:
+    dado['contratacao'] = int(input('Ano de contratação:'))
+    dado['Salario'] = float(input('Salário:'))
+    dado['Aposentadoria'] = dado['contratacao'] - datetime.now().year + 35 + dado['idade']
+for x, y in dado.items():
+    if y != 0:
+        print(f'{x:.<20}{y:.>20}')
+
+
+
+
+
 
 # DESAFIO 93
 '''Crie um programa que gerencie o aproveitamento de um jogador de futebol.
