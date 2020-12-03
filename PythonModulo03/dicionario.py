@@ -58,22 +58,19 @@ No final, coloque esse dicionário em ordem,
 sabendo que o vencedor tirou o maior número'''
 from random import randint
 from operator import itemgetter
+from time import sleep
 i = 0
 jogadas = {'jogador 1': randint(1, 6), 'jogador 2': randint(1, 6),
            'jogador 3': randint(1, 6), 'jogador 4': randint(1, 6),
            'jogador 5': randint(1, 6), 'jogador 6': randint(1, 6)}
 for j, v in jogadas.items():
     print(f'{j} jogou {v}')
+    sleep(0.3)
 ranking = sorted(jogadas.items(), key=itemgetter(1), reverse=True)
 print('-=' * 30)
 for i, v in enumerate(ranking):
     print(f'{i +1}º lugar {v[0]} com {v[1]}')
-
-
-
-
-
-
+    sleep(0.3)
 ##
 # DESAFIO 92
 '''Crie um programa que leia nome, ano de nascimento e
@@ -81,7 +78,20 @@ carteira de trabalho e cadastre-os( com idade) em um dicionário
 se por acaso a CTPS for diferente de zero, o Dicionario receberá
 também o ano de contratação e o salário. Calcule e acrescente, além
 da idade, com quantos anos a pessoa vai se aposentar(35 anos de contribuição'''
-##
+nome = input('Nome: ')
+nascimento = int(input('Ano de nascimento: '))
+idade = 2020 - nascimento
+ctps = int(input('CTPS: '))
+contratacao = 0
+aposentadoria = 0
+if ctps != 0:
+    contratacao = int(input('Ano de contratação: '))
+    aposentadoria = abs(2020 - contratacao - 35) + idade
+perfil = {'nome': nome, 'nascimento': nascimento, 'idade': idade, 'ctps': ctps, 'contratacao': contratacao, 'aposentadoria': aposentadoria, }
+for x, y in perfil.items():
+    if y != 0:
+        print(f'{x:.<20}{y:.>20}')
+
 # DESAFIO 93
 '''Crie um programa que gerencie o aproveitamento de um jogador de futebol.
 O programa vai ler o nome do jogador e quantas partidas 
