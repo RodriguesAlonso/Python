@@ -106,18 +106,24 @@ if dado['CTPS'] != 0:
 for x, y in dado.items():
     if y != 0:
         print(f'{x:.<20}{y:.>20}')
-
-
-
-
-
-
+##
 # DESAFIO 93
 '''Crie um programa que gerencie o aproveitamento de um jogador de futebol.
 O programa vai ler o nome do jogador e quantas partidas 
 ele jogou. Depois vai ler a quantidade de gols feitos em cada partida
 . NO final, tudo isso será guardado em um dicionário, incluindo o total de gols
 feito durante o campeonato'''
+dado = dict()
+dado['jogador:'] = input('Digite nome do jogador: ')
+dado['total de partidas:'] = int(input('Número de partidas jogas:'))
+i = 0
+dado['total de gols:'] = 0
+for p in range(dado['total de partidas:']):
+    dado[f'partida {p+1}:'] = int(input(f'Quantidade de gols na partida {p+1}:'))
+    dado['total de gols:'] += dado[f'partida {p+1}:']
+for v, i in dado.items():
+    print(f'{v} {i}')
+
 ##
 # DESAFIO 94
 '''Crie um programa que leia nome, sexo e idade de várias pessoas,
