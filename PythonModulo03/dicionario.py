@@ -121,8 +121,13 @@ dado['total de gols:'] = 0
 for p in range(dado['total de partidas:']):
     dado[f'partida {p+1}:'] = int(input(f'Quantidade de gols na partida {p+1}:'))
     dado['total de gols:'] += dado[f'partida {p+1}:']
-for v, i in dado.items():
-    print(f'{v} {i}')
+print(f'o Jogador {dado["jogador:"]} jogou {dado["total de partidas:"]} partidas.')
+for v, z in dado.items():
+    if i < 3:
+        i += 1
+        continue
+    print(f'    => Na partida {v}, fez {z} gols.')
+print(f'Foi um total de {dado["total de gols:"]} gols.')
 
 ##
 # DESAFIO 94
@@ -133,6 +138,7 @@ A) Quantas pessoas foram cadastradas
 B) A média de idade do grupo
 C) Uma lista com todas as mulheres
 D) Uma lista com todas as pessoas com idade acima da média'''
+
 ##
 # DESAFIO 95
 '''Aprimore o DESAFIO 093 para que ele funcione com vários jogadores,
