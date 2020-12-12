@@ -1,6 +1,7 @@
 lanches = 'hamburgue', 'suco', 'pizza', 'pudin'
 #tuplas são imutáeis
 ##
+lanches = 'hamburgue', 'suco', 'pizza', 'pudin'
 for comida in lanches:
     print(f'hoje eu comi {comida}')
 
