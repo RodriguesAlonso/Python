@@ -7,3 +7,5 @@ for a in lista:
     if True:
         print(f"{a} é verdadeiro")
     print(f'{a} é falso')
+
+print("Hello, git Hub")    
