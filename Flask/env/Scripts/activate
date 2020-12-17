@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\GitHub\Estudos\Python\AmbienteVirtual\env"
+VIRTUAL_ENV="D:\GitHub\Estudos\Python\Flask\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
