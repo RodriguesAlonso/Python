@@ -1,45 +1,34 @@
-from sqlalchemy.sql.schema import ForeignKey
-from sqlalchemy.util.langhelpers import format_argspec_init
+from sys import int_info
 from app import db
 
 
 class User(db.Model):
     __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String, unique=True)
-    password = db.Collumn(db.String)
-    email = db.Collum(db.String, unique=True)
+    id
+    username
+    password
+    email
 
-    def __init__(self, username, password, email):
-        self.username = username
-        self.password = password
-        self.email = email
+    def __init__(self) -> None:
+        super().__init__()
 
-    def __repr__(self):
-        return '<User %r>' % self.username
-
+    def __repr__(self) -> str:
+        return super().__repr__()
 
 class Post(db.Model):
     __tablename__ = 'posts'
-    id = db.Collumn(db.Integer, primay_key=True)
-    content = id.Collumn(db.Text)
-    user_id = id.Collumn(db.Integer, ForeignKey='users_id')
+    id
+    content
+    user_if
 
-    user = db.relationship('User', foreing_keys=user_id)
+    def __init__(self) -> None:
+        super().__init__()
 
-    def __init__(self, content, user_id):
-        self.content = content
-        self.user_id = user_id
+    def __repr__(self) -> str:
+        return super().__repr__()
 
-    def __repr__(self):
-        return "<Posts %r>" % self.id
-
-
-class Follow(db.Model):
-    __tablename__ = "follow"
-    id = db.Collumn(db.Intger, primary_key=True)
-    user_id = db.Collumn(db.Integer, Foreing_Keys=('users.id'))
-    follower_id = db.Collumn(db.integer, Foreing_Keys=('users.id')
-
-    user = db.realationship('User', foreing_keys=user_id)
-    follow = db.relationship('User', foreing_keys=follower_id)
+class Follower(db.Model):
+    __tablename__ = 'follow'
+    id
+    user_id
+    follower_id
