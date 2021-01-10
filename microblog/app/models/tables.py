@@ -1,14 +1,15 @@
+from sqlalchemy.sql.schema import ForeignKey
 from app import db
 
 
 class User(db.Model):
-    __table_name__ = 'users'
-
-    id = db.column(db.Integer, pimary_key=True)
-    username = db.column(db.String, unique = True)
-    password = db.column(db.String)
+    __tablename__ = 'users'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String, unique = True)
+    password = db.Column(db.String)
     name = db.Column(db.String)
-    email = db.column(db.String, unique=True)
+    email = db.Column(db.String, unique=True)
 
     def __init__(self, username, password, name, email) -> None:
         self.username = username
@@ -20,13 +21,13 @@ class User(db.Model):
         return '<User %r>' % self.username
 
 class Post(db.Model):
-    __table_name__ = 'posts'
+    __tablename__ = 'posts'
 
-    id = db.Column(db.integer, primary_key=True) 
+    id = db.Column(db.Integer, primary_key=True) 
     content = db.Column(db.Text)
-    user_id = db.Column(db.integer, db.ForeingKey('users.id')) 
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id')) 
 
-    user = db.relationship('User', foreing_key=user_id)
+    user = db.relationship('User', foreign_keys=user_id)
 
     def __init__(self, content, user_id) -> None:
         self.content = content
@@ -36,11 +37,11 @@ class Post(db.Model):
         return '<Post %r>' % self.id
 
 class Follow(db.Model):
-    __table_name__ = 'follow'
+    __tablename__ = 'follow'
 
     id = db.Column(db.Integer, primary_key=True) 
-    user_id = db.Column(db.Integer, db.ForeingKey('users.id'))
-    follower_id = db.Column(db.Integer, db.ForeingKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    follower_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    user = db.relationship('User', foreing_key=user_id)
-    follower = db.relationship('User', foreing_key=follower_id)
+    user = db.relationship('User', foreign_keys=user_id)
+    follower = db.relationship('User', foreign_keys=follower_id)

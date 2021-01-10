@@ -1,6 +1,7 @@
 from flask import render_template
 from flask_wtf import form
-from app import app
+from app import app, db
+from app.models import tables
 from app.models.forms import LoginForm
 
 @app.route('/index')
@@ -31,3 +32,18 @@ def name(name):
 def inteiro(inteiro):
     print(type(inteiro))
     return 'inteiro'"""
+
+'''@app.route("/teste/<info>")
+@app.route("/teste", defaults={"info:None"})
+def teste(info):
+    i = tables.User('joao','2342','joao', 'joao@gamil.com')
+    db.session.add(i)
+    db.session.commit()
+    return 'ok'''
+
+@app.route("/teste/<info>")
+@app.route("/teste", defaults={"info:None"})
+def teste(info):
+    r = tables.User.query.filter_by(username='joao').first()
+    print (r.username, r.name, r.password, r.email)
+    return 'ok'
