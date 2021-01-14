@@ -13,8 +13,8 @@ def index():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        print(form.username.data)
-        print(form.password.data)
+        
+        
     else:
         print(form.errors)
     return render_template('login.html', form=form)
@@ -41,9 +41,9 @@ def teste(info):
     db.session.commit()
     return 'ok'''
 
-@app.route("/teste/<info>")
+'''@app.route("/teste/<info>")
 @app.route("/teste", defaults={"info:None"})
 def teste(info):
     r = tables.User.query.filter_by(username='joao').first()
     print (r.username, r.name, r.password, r.email)
-    return 'ok'
+    return 'ok'''
